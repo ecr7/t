@@ -1,40 +1,34 @@
 <?php
-include "MascotaModel.php";
-$nuevoMascota = new Mascota();
+
+include "ClienteModel.php";
+$nuevoCliente = new Cliente();
 
 /*GUARDAR*/
 if(isset($_POST['btnGuardar']))
 {
-    $nuevoMascota->GuardarMascota($_POST['nombre'],$_POST['vacuna']);
-    header('Location: VistaMascota.php');
+    $nuevoCliente->GuardarCliente($_POST['nombreMascota']);
+    header('Location: ListarMascota.php');
 }
+
+
 /*EDITAR*/
-else
+if(isset($_POST['btnVacunar']))
+{
+ $nuevoCliente->VacunarCliente($_POST['idCliente'],$_POST['Vacuna']); 
+ header('Location: ListarMascota.php'); 
+}
+
+
+
 if(isset($_POST['btnEditar']))
 {
- $nuevoMascota->EditarMascota($_POST['idMascota'],$_POST['txtnombre'],$_POST['vacuna']); 
- header('Location: VistaMascota.php');
-        
+$nuevoCliente->ActualizarCliente($_POST['idCliente'],$_POST['nombreMascota']); 
+ header('Location: ListarMascota.php');       
 }
 
-/*ELIMINAR*/
-
-
-if(isset($_POST['btnEliminar']))
-{
- $nuevoMascota->EliminarMascota($_POST['idMascota']); 
- header('Location: VistaMascota.php');
-        
+if(isset($_POST['btnCancelar']))
+{ 
+ header('Location: ListarMascota.php');        
 }
 
-
-
-
-/*
-else
-if(isset($_POST['btnEliminar'])){
-$nuevoEstudiante->EliminarEstudiante($_POST['idStudiante']);
-header('Location: VistaEstudiante.php');
-}
-*/
-
+?>

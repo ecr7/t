@@ -12,10 +12,7 @@
 
 </head>
 <body>
-   
 
-    
-<!-- <nav class="navbar navbar-dark bg-primary">  -->
 <nav class="navbar navbar-expand-lg bg-primary">
   <div class="container-fluid">
   
@@ -39,12 +36,28 @@
   </div>
 </nav>
 
-
-
-    </nav>
- 
-
+    <h3 class="text-center text-danger">LISTADO DE MASCOTA</h3>
+    <hr>
+    <div class="container">
+    <table class="table table-striped">
+        <th>Nombre</th>
+        <th colspan="2">ACCION</th>
+    <?php
+        include_once "EstudianteModel.php";
+        $Estudiante = new Estudiante();
+        $ListaEstudiantes = $Estudiante->ListarEstudiantes();
+        while($Estudiantes = mysqli_fetch_assoc($ListaEstudiantes))
+        {?>
+          <tr>
+                <td><?php echo $Estudiantes['nombre'] ?> </td>
+                <td><a href="VistaEditarEstudiante.php?idMascota  =<?php echo $Estudiantes['idMascota'];?>"><img src="editar.png" height="35" width="35" alt="Editar" title="Editar"></a></td>
+                <td><a href="eliminar.php?idEst=<?php echo $Estudiantes['idMascota'];?>"><img src="eliminar.png" height="35" width="35" alt="Eliminar" title="Eliminar"></a></td>
+                
+          </tr>
+          
+       <?php } ?>
     
-
+    </table>
+    </div>
 </body>
 </html>

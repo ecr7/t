@@ -38,17 +38,33 @@
     </div>
   </div>
 </nav>
-
-
-    </nav>
- 
-    <center><p><h2>AGREGAR MASCOTA</h2></p></center>
-    
-  <form action="ClienteController.php" method="post">
-      <label> Nombre de la Mascota: <input type="text" name="nombreMascota" required></label>
-      <input type="submit" value="Guardar " name="btnGuardar">
-  </form>
     
 
+
+<div class="container-fluid bg-primary text-white text-center">
+        <p>
+            <h2>INGRESO DE LA MASCOTA</h2>
+        </p>
+    </div>
+    <div class="container">
+       <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+        <form action="EstudianteController.php" method="post" class="border shadow p-3 mb-5 bg-body rounded">
+            
+            <div class="d-flex mb-4">
+                <label for="nombre" class="fw-bold">Nombre:</label>
+            <input class="form-control" type="text" name="nombre">
+            </div>
+            
+            <div class="text-center">
+                <input class="btn bg-primary text-white" type="submit" value="Guardar Registro" name="btnGuardar">
+            </div>
+        </form>
+        </div>
+        <div class="col-3"></div>
+       </div>
+    </div>
+    <hr>
 </body>
 </html>
