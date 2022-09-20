@@ -38,42 +38,17 @@
     </div>
   </div>
 </nav>
+
+
     </nav>
  
-
-
-<!-- Aqui inicia otra parte de codigo -->
-
-<p>
-    <form action="MascotaController.php" method="POST">
-                        <?php
-                            include_once "AgregarMascota.php";
-                            $nuevoMascota = new Mascota();
-                            /*FILTRAR LA MASCOTA SEGUN ID ENVIADO*/
-                            $resultado = $nuevoMascota->FiltrarMascota($_GET['idMascota']);
-
-                            while($resultadoFiltrado = mysqli_fetch_assoc($resultado))
-                            {
-                        ?>
-                             <p>
-                                <label for="txtnombre">Nombre:</label>
-                                <input type="text" name="txtnombre" 
-                                value="<?php echo $resultadoFiltrado['nombre']?>">
-                              </p>
-
-
-                                 <p>
-                                    <input type="hidden" name="idMascota" 
-                                    value="<?php echo $resultadoFiltrado['idMascota']?>">
-                                 </p>   
-                            <?php
-                            }
-                            ?>
-                   <input class="btn btn-warning" type="submit" value="Editar Mascota" name="btnEditar">       
+    <center><p><h2>AGREGAR MASCOTA</h2></p></center>
+    
+    <form action="ClienteController.php" method="post">
+      <label> Nombre de la Mascota: <input type="text" name="nombreMascota" required></label>
+      <input type="submit" value="Guardar " name="btnGuardar">
     </form>
-    </p>
-                        
-                            
+    
 
 </body>
 </html>
